@@ -6,7 +6,7 @@ import (
 	"encoding/base64"
 	"testing"
 
-	wrapping "github.com/hashicorp/go-kms-wrapping"
+	wrapping "github.com/akadake/go-kms-wrapping"
 	"google.golang.org/protobuf/proto"
 )
 

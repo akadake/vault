@@ -17,7 +17,7 @@ import (
 	"github.com/golang/protobuf/proto"
 	"github.com/hashicorp/errwrap"
 	log "github.com/hashicorp/go-hclog"
-	wrapping "github.com/hashicorp/go-kms-wrapping"
+	wrapping "github.com/akadake/go-kms-wrapping"
 	"github.com/hashicorp/go-raftchunking"
 	"github.com/hashicorp/go-uuid"
 	"github.com/hashicorp/raft"

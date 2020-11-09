@@ -10,8 +10,8 @@ import (
 	"net/http"
 
 	"github.com/hashicorp/errwrap"
-	wrapping "github.com/hashicorp/go-kms-wrapping"
-	aeadwrapper "github.com/hashicorp/go-kms-wrapping/wrappers/aead"
+	wrapping "github.com/akadake/go-kms-wrapping"
+	aeadwrapper "github.com/akadake/go-kms-wrapping/wrappers/aead"
 	"github.com/hashicorp/go-uuid"
 	"github.com/hashicorp/vault/helper/pgpkeys"
 	"github.com/hashicorp/vault/sdk/helper/consts"

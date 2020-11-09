@@ -9,12 +9,12 @@ import (
 	"net/url"
 	"sync/atomic"
 
-	wrapping "github.com/hashicorp/go-kms-wrapping"
+	wrapping "github.com/akadake/go-kms-wrapping"
 	"github.com/hashicorp/vault/physical/raft"
 	"github.com/hashicorp/vault/vault/seal"
 
 	"github.com/hashicorp/errwrap"
-	aeadwrapper "github.com/hashicorp/go-kms-wrapping/wrappers/aead"
+	aeadwrapper "github.com/akadake/go-kms-wrapping/wrappers/aead"
 	"github.com/hashicorp/vault/helper/namespace"
 	"github.com/hashicorp/vault/helper/pgpkeys"
 	"github.com/hashicorp/vault/shamir"

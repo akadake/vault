@@ -13,7 +13,7 @@ import (
 
 	"github.com/golang/protobuf/proto"
 	"github.com/hashicorp/errwrap"
-	wrapping "github.com/hashicorp/go-kms-wrapping"
+	wrapping "github.com/akadake/go-kms-wrapping"
 	"github.com/hashicorp/vault/vault/seal"
 	"github.com/keybase/go-crypto/openpgp"
 	"github.com/keybase/go-crypto/openpgp/packet"

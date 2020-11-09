@@ -8,14 +8,15 @@ import (
 
 	"github.com/hashicorp/errwrap"
 	"github.com/hashicorp/go-hclog"
-	wrapping "github.com/hashicorp/go-kms-wrapping"
-	aeadwrapper "github.com/hashicorp/go-kms-wrapping/wrappers/aead"
-	"github.com/hashicorp/go-kms-wrapping/wrappers/alicloudkms"
-	"github.com/hashicorp/go-kms-wrapping/wrappers/awskms"
-	"github.com/hashicorp/go-kms-wrapping/wrappers/azurekeyvault"
-	"github.com/hashicorp/go-kms-wrapping/wrappers/gcpckms"
-	"github.com/hashicorp/go-kms-wrapping/wrappers/ocikms"
-	"github.com/hashicorp/go-kms-wrapping/wrappers/transit"
+	wrapping "github.com/akadake/go-kms-wrapping"
+	aeadwrapper "github.com/akadake/go-kms-wrapping/wrappers/aead"
+	duokeywrapper "github.com/akadake/go-kms-wrapping/wrappers/duokey"
+	"github.com/akadake/go-kms-wrapping/wrappers/alicloudkms"
+	"github.com/akadake/go-kms-wrapping/wrappers/awskms"
+	"github.com/akadake/go-kms-wrapping/wrappers/azurekeyvault"
+	"github.com/akadake/go-kms-wrapping/wrappers/gcpckms"
+	"github.com/akadake/go-kms-wrapping/wrappers/ocikms"
+	"github.com/akadake/go-kms-wrapping/wrappers/transit"
 	"github.com/hashicorp/go-multierror"
 	"github.com/hashicorp/hcl"
 	"github.com/hashicorp/hcl/hcl/ast"
@@ -195,6 +196,9 @@ func configureWrapper(configKMS *KMS, infoKeys *[]string, info *map[string]strin
 	case wrapping.PKCS11:
 		return nil, fmt.Errorf("KMS type 'pkcs11' requires the Vault Enterprise HSM binary")
 
+	case wrapping.DuoKeyKMS:
+		wrapper, kmsInfo, err = GetDuoKeyKMSFunc(opts, configKMS)
+
 	default:
 		return nil, fmt.Errorf("Unknown KMS type %q", configKMS.Type)
 	}
@@ -211,6 +215,20 @@ func configureWrapper(configKMS *KMS, infoKeys *[]string, info *map[string]strin
 	}
 
 	return wrapper, nil
+}
+
+func GetDuoKeyKMSFunc(opts *wrapping.WrapperOptions, kms *KMS) (wrapping.Wrapper, map[string]string, error) {
+	wrapper := duokeywrapper.NewWrapper(opts)
+	wrapperInfo, err := wrapper.SetConfig(kms.Config)
+	if err != nil {
+		return nil, nil, err
+	}
+
+	info := make(map[string]string)
+	if wrapperInfo != nil {
+		info["DuoKey KMS KeyID"] = wrapperInfo["kms_key_id"]
+	}
+	return wrapper, info, nil
 }
 
 func GetAEADKMSFunc(opts *wrapping.WrapperOptions, kms *KMS) (wrapping.Wrapper, map[string]string, error) {

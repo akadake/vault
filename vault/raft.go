@@ -19,7 +19,7 @@ import (
 	"github.com/hashicorp/go-discover"
 	discoverk8s "github.com/hashicorp/go-discover/provider/k8s"
 	"github.com/hashicorp/go-hclog"
-	wrapping "github.com/hashicorp/go-kms-wrapping"
+	wrapping "github.com/akadake/go-kms-wrapping"
 	uuid "github.com/hashicorp/go-uuid"
 	"github.com/hashicorp/vault/api"
 	"github.com/hashicorp/vault/physical/raft"
