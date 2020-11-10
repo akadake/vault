@@ -34,9 +34,9 @@ const credentials string = `
 func main() {
 	// Create client from credentials
 	tsmClient := parseCredentials(credentials)
-	rsaClient := tsm.NewRSAClient(tsmClient)
+	prfClient := tsm.NewPRFClient(tsmClient)
 
-	keyID, err := rsaClient.Keygen(2048)
+	keyID, err := prfClient.Keygen()
 
 	if err != nil {
 		fmt.Println("error generating key: ", err)
