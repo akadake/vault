@@ -2,7 +2,7 @@
    "name": "Golang dev environment",
    "dockerFile": "Dockerfile",
    "runArgs": [ "-e TZ=Europe/Zurich" ],
-   "forwardPorts": [10000],
+   "forwardPorts": [8200],
    "postCreateCommand": "bash ./.devcontainer/install_dev_tools.bash",
    "settings": {
       "workbench.colorTheme": "Slack Theme Dark Mode",
