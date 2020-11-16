@@ -6,17 +6,17 @@ import (
 	"io"
 	"strings"
 
-	"github.com/hashicorp/errwrap"
-	"github.com/hashicorp/go-hclog"
 	wrapping "github.com/akadake/go-kms-wrapping"
 	aeadwrapper "github.com/akadake/go-kms-wrapping/wrappers/aead"
-	duokeywrapper "github.com/akadake/go-kms-wrapping/wrappers/duokey"
 	"github.com/akadake/go-kms-wrapping/wrappers/alicloudkms"
 	"github.com/akadake/go-kms-wrapping/wrappers/awskms"
 	"github.com/akadake/go-kms-wrapping/wrappers/azurekeyvault"
+	duokeywrapper "github.com/akadake/go-kms-wrapping/wrappers/duokey"
 	"github.com/akadake/go-kms-wrapping/wrappers/gcpckms"
 	"github.com/akadake/go-kms-wrapping/wrappers/ocikms"
 	"github.com/akadake/go-kms-wrapping/wrappers/transit"
+	"github.com/hashicorp/errwrap"
+	"github.com/hashicorp/go-hclog"
 	"github.com/hashicorp/go-multierror"
 	"github.com/hashicorp/hcl"
 	"github.com/hashicorp/hcl/hcl/ast"
@@ -197,6 +197,7 @@ func configureWrapper(configKMS *KMS, infoKeys *[]string, info *map[string]strin
 		return nil, fmt.Errorf("KMS type 'pkcs11' requires the Vault Enterprise HSM binary")
 
 	case wrapping.DuoKeyKMS:
+		logger.Info("Unsealing Vault with DuoKey")
 		wrapper, kmsInfo, err = GetDuoKeyKMSFunc(opts, configKMS)
 
 	default:
