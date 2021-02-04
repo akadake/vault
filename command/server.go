@@ -20,11 +20,11 @@ import (
 	"sync"
 	"time"
 
+	wrapping "github.com/akadake/go-kms-wrapping"
+	aeadwrapper "github.com/akadake/go-kms-wrapping/wrappers/aead"
 	"github.com/hashicorp/errwrap"
 	"github.com/hashicorp/go-hclog"
 	log "github.com/hashicorp/go-hclog"
-	wrapping "github.com/akadake/go-kms-wrapping"
-	aeadwrapper "github.com/akadake/go-kms-wrapping/wrappers/aead"
 	"github.com/hashicorp/go-multierror"
 	"github.com/hashicorp/vault/audit"
 	"github.com/hashicorp/vault/command/server"

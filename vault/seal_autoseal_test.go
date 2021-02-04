@@ -6,8 +6,8 @@ import (
 	"reflect"
 	"testing"
 
-	proto "github.com/golang/protobuf/proto"
 	wrapping "github.com/akadake/go-kms-wrapping"
+	proto "github.com/golang/protobuf/proto"
 	"github.com/hashicorp/vault/sdk/physical"
 	"github.com/hashicorp/vault/vault/seal"
 )

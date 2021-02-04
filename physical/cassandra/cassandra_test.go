@@ -1,13 +1,14 @@
 package cassandra
 
 import (
+	"os"
+	"reflect"
+	"testing"
+
 	log "github.com/hashicorp/go-hclog"
 	"github.com/hashicorp/vault/helper/testhelpers/cassandra"
 	"github.com/hashicorp/vault/sdk/helper/logging"
 	"github.com/hashicorp/vault/sdk/physical"
-	"os"
-	"reflect"
-	"testing"
 )
 
 func TestCassandraBackend(t *testing.T) {

@@ -91,7 +91,7 @@ func (c *OperatorRaftSnapshotSaveCommand) Run(args []string) int {
 		c.UI.Error(fmt.Sprintf("Error taking the snapshot: %s", err))
 		return 2
 	}
-	
+
 	err = w.Close()
 	if err != nil {
 		c.UI.Error(fmt.Sprintf("Error taking the snapshot: %s", err))
@@ -102,9 +102,8 @@ func (c *OperatorRaftSnapshotSaveCommand) Run(args []string) int {
 
 type lazyOpenWriter struct {
 	openFunc func() (io.WriteCloser, error)
-	writer io.WriteCloser
+	writer   io.WriteCloser
 }
-
 
 func (l *lazyOpenWriter) Write(p []byte) (n int, err error) {
 	if l.writer == nil {

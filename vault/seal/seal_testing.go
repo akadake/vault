@@ -1,8 +1,8 @@
 package seal
 
 import (
-	"github.com/hashicorp/go-hclog"
 	wrapping "github.com/akadake/go-kms-wrapping"
+	"github.com/hashicorp/go-hclog"
 )
 
 type TestSealOpts struct {

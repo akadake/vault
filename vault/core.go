@@ -19,11 +19,11 @@ import (
 	"sync/atomic"
 	"time"
 
+	wrapping "github.com/akadake/go-kms-wrapping"
+	aeadwrapper "github.com/akadake/go-kms-wrapping/wrappers/aead"
 	"github.com/armon/go-metrics"
 	"github.com/hashicorp/errwrap"
 	log "github.com/hashicorp/go-hclog"
-	wrapping "github.com/akadake/go-kms-wrapping"
-	aeadwrapper "github.com/akadake/go-kms-wrapping/wrappers/aead"
 	"github.com/hashicorp/go-multierror"
 	"github.com/hashicorp/go-uuid"
 	"github.com/hashicorp/vault/api"

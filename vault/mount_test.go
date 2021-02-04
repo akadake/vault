@@ -508,9 +508,9 @@ func TestCore_RemountConcurrent(t *testing.T) {
 
 	c2MountMap := map[string]interface{}{}
 	for _, v := range c2.mounts.Entries {
-		
+
 		if _, ok := c2MountMap[v.Path]; ok {
-		t.Fatalf("duplicated mount path found at %s", v.Path)
+			t.Fatalf("duplicated mount path found at %s", v.Path)
 		}
 		c2MountMap[v.Path] = v
 	}

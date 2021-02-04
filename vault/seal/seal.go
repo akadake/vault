@@ -4,8 +4,8 @@ import (
 	"context"
 	"time"
 
-	metrics "github.com/armon/go-metrics"
 	wrapping "github.com/akadake/go-kms-wrapping"
+	metrics "github.com/armon/go-metrics"
 )
 
 type StoredKeysSupport int

@@ -13,8 +13,8 @@ import (
 	"github.com/hashicorp/vault/physical/raft"
 	"github.com/hashicorp/vault/vault/seal"
 
-	"github.com/hashicorp/errwrap"
 	aeadwrapper "github.com/akadake/go-kms-wrapping/wrappers/aead"
+	"github.com/hashicorp/errwrap"
 	"github.com/hashicorp/vault/helper/namespace"
 	"github.com/hashicorp/vault/helper/pgpkeys"
 	"github.com/hashicorp/vault/shamir"

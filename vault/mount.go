@@ -258,20 +258,20 @@ const mountStateUnmounting = "unmounting"
 
 // MountEntry is used to represent a mount table entry
 type MountEntry struct {
-	Table                 string            `json:"table"`                   // The table it belongs to
-	Path                  string            `json:"path"`                    // Mount Path
-	Type                  string            `json:"type"`                    // Logical backend Type
-	Description           string            `json:"description"`             // User-provided description
-	UUID                  string            `json:"uuid"`                    // Barrier view UUID
-	BackendAwareUUID      string            `json:"backend_aware_uuid"`      // UUID that can be used by the backend as a helper when a consistent value is needed outside of storage.
-	Accessor              string            `json:"accessor"`                // Unique but more human-friendly ID. Does not change, not used for any sensitive things (like as a salt, which the UUID sometimes is).
-	Config                MountConfig       `json:"config"`                  // Configuration related to this mount (but not backend-derived)
-	Options               map[string]string `json:"options"`                 // Backend options
-	Local                 bool              `json:"local"`                   // Local mounts are not replicated or affected by replication
-	SealWrap              bool              `json:"seal_wrap"`               // Whether to wrap CSPs
+	Table                 string            `json:"table"`                             // The table it belongs to
+	Path                  string            `json:"path"`                              // Mount Path
+	Type                  string            `json:"type"`                              // Logical backend Type
+	Description           string            `json:"description"`                       // User-provided description
+	UUID                  string            `json:"uuid"`                              // Barrier view UUID
+	BackendAwareUUID      string            `json:"backend_aware_uuid"`                // UUID that can be used by the backend as a helper when a consistent value is needed outside of storage.
+	Accessor              string            `json:"accessor"`                          // Unique but more human-friendly ID. Does not change, not used for any sensitive things (like as a salt, which the UUID sometimes is).
+	Config                MountConfig       `json:"config"`                            // Configuration related to this mount (but not backend-derived)
+	Options               map[string]string `json:"options"`                           // Backend options
+	Local                 bool              `json:"local"`                             // Local mounts are not replicated or affected by replication
+	SealWrap              bool              `json:"seal_wrap"`                         // Whether to wrap CSPs
 	ExternalEntropyAccess bool              `json:"external_entropy_access,omitempty"` // Whether to allow external entropy source access
-	Tainted               bool              `json:"tainted,omitempty"`       // Set as a Write-Ahead flag for unmount/remount
-	MountState            string            `json:"mount_state,omitempty"`   // The current mount state.  The only non-empty mount state right now is "unmounting"
+	Tainted               bool              `json:"tainted,omitempty"`                 // Set as a Write-Ahead flag for unmount/remount
+	MountState            string            `json:"mount_state,omitempty"`             // The current mount state.  The only non-empty mount state right now is "unmounting"
 	NamespaceID           string            `json:"namespace_id"`
 
 	// namespace contains the populated namespace
@@ -901,7 +901,7 @@ func (c *Core) remount(ctx context.Context, src, dst string, updateStorage bool)
 	if match := c.router.MatchingMount(ctx, dst); match != "" {
 		c.mountsLock.Unlock()
 		return fmt.Errorf("existing mount at %q", match)
-	}	
+	}
 	var entry *MountEntry
 	for _, mountEntry := range c.mounts.Entries {
 		if mountEntry.Path == src && mountEntry.NamespaceID == ns.ID {

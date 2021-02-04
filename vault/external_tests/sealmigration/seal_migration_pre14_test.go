@@ -8,8 +8,8 @@ import (
 
 	"github.com/go-test/deep"
 
-	"github.com/hashicorp/go-hclog"
 	wrapping "github.com/akadake/go-kms-wrapping"
+	"github.com/hashicorp/go-hclog"
 	"github.com/hashicorp/vault/helper/testhelpers"
 	sealhelper "github.com/hashicorp/vault/helper/testhelpers/seal"
 	"github.com/hashicorp/vault/helper/testhelpers/teststorage"

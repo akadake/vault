@@ -1,9 +1,9 @@
 package vault
 
 import (
-	"github.com/hashicorp/go-hclog"
 	wrapping "github.com/akadake/go-kms-wrapping"
 	aeadwrapper "github.com/akadake/go-kms-wrapping/wrappers/aead"
+	"github.com/hashicorp/go-hclog"
 	"github.com/hashicorp/vault/sdk/helper/logging"
 	"github.com/hashicorp/vault/vault/seal"
 	testing "github.com/mitchellh/go-testing-interface"

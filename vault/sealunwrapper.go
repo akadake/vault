@@ -7,9 +7,9 @@ import (
 	"fmt"
 	"sync/atomic"
 
+	wrapping "github.com/akadake/go-kms-wrapping"
 	proto "github.com/golang/protobuf/proto"
 	log "github.com/hashicorp/go-hclog"
-	wrapping "github.com/akadake/go-kms-wrapping"
 	"github.com/hashicorp/vault/sdk/helper/locksutil"
 	"github.com/hashicorp/vault/sdk/physical"
 )

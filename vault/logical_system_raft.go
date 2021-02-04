@@ -7,8 +7,8 @@ import (
 	"errors"
 	"strings"
 
-	proto "github.com/golang/protobuf/proto"
 	wrapping "github.com/akadake/go-kms-wrapping"
+	proto "github.com/golang/protobuf/proto"
 	uuid "github.com/hashicorp/go-uuid"
 	"github.com/hashicorp/vault/helper/namespace"
 	"github.com/hashicorp/vault/physical/raft"
